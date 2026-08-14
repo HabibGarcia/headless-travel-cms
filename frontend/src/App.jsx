@@ -12,6 +12,8 @@ function App() {
     description: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  //url de render 
+  const API_URL = import.meta.env.DEV ? 'http://localhost:5000/api/destinations' : 'https://travel-cms-backend.onrender.com/api/destinations';
 
   // Cargar destinos al inicio
   useEffect(() => {
@@ -19,7 +21,7 @@ function App() {
   }, []);
 
   const fetchDestinations = () => {
-    fetch('http://localhost:5000/api/destinations')
+    fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
         setDestinations(data);
@@ -43,7 +45,7 @@ function App() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/destinations', {
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
