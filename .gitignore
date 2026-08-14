@@ -1,7 +1,7 @@
 # Ignorar dependencias de Node
 node_modules/
 
-# Ignorar variables de entorno (Secretos)
+# Ignorar variables de entorno
 .env
 
 # Ignorar archivos del sistema operativo
